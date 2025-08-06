@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <title>Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #body-header {
+      height: 65vh;
+      background-image: url("macbook_mouse.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0.8;
+    }
+
+    .horizontal-list {
+      list-style: none;
+      padding: 0px;
+      text-align: center;
+    }
+
+    .horizontal-list li {
+      display: inline-block;
+      margin: 0 8px 0 8px;
+    }
+
+    .horizontal-list li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .dom {
+      color: red;
+      padding: 30px;
+      margin-right: 90px;
+      margin-top: 20px;
+      padding-left: 30px;
+      text-align: right;
+    }
+
+    .rom {
+      color: white;
+      text-align: center;
+      margin-top: 0px;
+    }
+
+    .icon-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .icon-container i {
+      font-size: 20px;
+      margin: 0 10px;
+      color: white;
+
+    }
+
+    #about {
+      background-color: white;
+    }
+
+    #about p {
+      margin: 20px 100px 20px 100px;
+      width: 80vw;
+
+
+    }
+
+    #skills {
+      background-color: lightgrey;
+      color: blue;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .section-heading mb75px span {
+      margin-top: 10px;
+    }
+
+    .section-heading {
+      margin-top: 10px;
+      color: blue;
+    }
+
+    .skills-display {
+      width: 70%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .skill-progress-bar {
+      width: 10rem;
+      height: 2rem;
+      padding: 10px 10px 20px 10px;
+      /* border: 1px solid black; */
+      border-radius: 0.8rem;
+      background-color: lightgrey;
+    }
+
+    .eighty-percent {
+      width: 80%;
+      height: 100%;
+      border-radius: 20px 0px 0px 20px;
+      background-color: orange;
+    }
+
+    .skill-name span {
+      color: white;
+      font-size: 1rem;
+      margin-left: 10px;
+    }
+
+    .twenty-percent {
+      width: 20%;
+      height: 100%;
+      border-radius: 20px 0px 0px 20px;
+      background-color: #2857a4;
+      box-shadow: 1px 0 7px grey;
+    }
+
+    .seventy-percent {
+      width: 70%;
+      height: 100%;
+      border-radius: 20px 0px 0px 20px;
+      background-color: #20ebb8;
+    }
+
+    .ninety-percent {
+      width: 90%;
+      height: 100%;
+      border-radius: 20px 0px 0px 20px;
+      background-color: rgb(252, 220, 0);
+    }
+
+    /* new */
+    .skills-display {
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      text-align: center;
+    }
+
+    .new {
+      background-color: #999;
+      border-radius: 20px;
+      height: 40px;
+    }
+
+    .skill-name {
+      padding-top: 9px;
+    }
+
+    .container {
+      display: flex;
+      text-align: center;
+    }
+
+    .left-section {
+      text-align: center;
+    }
+
+    .left-section,
+    .right-section {
+      flex: 1;
+    }
+
+    .left-section img,
+    .right-section img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      position: absolute;
+      top: 50%;
+    }
+
+    /* Work Experience */
+
+    #education {
+      background-color: lightgrey;
+      text-align: center;
+      color: blue;
+    }
+
+    .timeline {
+      position: relative;
+      width: 75%;
+      text-align: center;
+
+    }
+
+    .timeline-box {
+      padding: 5px;
+      width: 40%;
+      min-height: 150px;
+      position: relative;
+      left: 5%;
+      text-align: right;
+    }
+
+    .timeline-box::after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: lightgrey;
+      top: 25%;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .timeline-box:nth-child(2n) {
+      left: 53%;
+    }
+
+    .timeline-box:nth-child(2n + 1)::after {
+      right: -11.8%;
+    }
+
+    .timeline-box:nth-child(2n)::after {
+      left: -15%;
+    }
+
+    .timeline-container {
+      padding: 8px;
+    }
+
+    .timeline-logo {
+      position: absolute;
+      width: 50px;
+      overflow: hidden;
+    }
+
+    .timeline-logo>img {
+      width: 100%;
+    }
+
+    #timeline-divider {
+      position: absolute;
+      width: 0;
+      top: 10%;
+      left: 50%;
+      border: 1px dashed #0096fa6b;
+      height: 66%;
+      color: #433e3f;
+    }
+
+    #timeline-divider .timeline-traveller {
+      position: sticky;
+      top: 135px;
+      z-index: 2;
+    }
+
+    #timeline-divider i {
+      transform: rotate(90deg);
+      margin-top: -35px;
+      display: block;
+      color: #2857a4;
+    }
+
+    .experience-designation {
+      font-size: 1.4rem;
+    }
+
+    .experience-company-name {
+      margin: 5px 0 0;
+      color: #eb822d;
+      font-weight: 400;
+      font-size: 1.2rem;
+    }
+
+    .experience-duration {
+      color: #9e9b9b;
+      font-weight: 100;
+      color: grey;
+      font-size: 1rem;
+    }
+
+    .experience-description {
+      font-size: 14px;
+      padding: 2px;
+      color: grey;
+      line-height: 20px;
+    }
+
+    /* Portfolio Section */
+
+    #portfolio-container {
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 50px;
+      margin-bottom: 20px;
+      justify-content: space-around;
+
+    }
+
+    .portfolio-image-container {
+      max-width: 300px;
+      overflow: hidden;
+      margin: 30px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .portfolio-image-container img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .portfolio-details {
+      transition: all 0.5s ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      color: transparent;
+      text-align: center;
+      padding: 10px;
+
+    }
+
+    .portfolio-image-container:hover {
+      box-shadow: 0 0 20px #74adc8;
+    }
+
+    .portfolio-image-container:hover .portfolio-details {
+      background-color: #80808078;
+      color: white;
+    }
+
+    /* Contact Form */
+
+    #contact {
+      background-color: #0abcf9;
+      background-image: linear-gradient(50deg, #2857a4 0%, #403066 74%);
+      color: white;
+      padding-bottom: 40px;
+    }
+
+    #contact h1,
+    #contact h1 span {
+      color: white;
+    }
+
+    #contact-form {
+      margin-left: 20%;
+    }
+
+    #contact-container {
+      display: flex;
+    }
+
+    #my-details-container {
+      width: 35%;
+      margin-left: 6%;
+    }
+
+    #my-details-container h3 {
+      color: white;
+      font-weight: 550;
+      font-size: 1.2rem;
+    }
+
+    #contact-form-container {
+      width: 50%;
+    }
+
+    #my-details-container p {
+      color: #d9dcdd;
+      font-size: 0.9rem;
+    }
+
+    .my-details-info-container {
+      margin-bottom: 20px;
+      color: #d9dcdd;
+      font-size: 1rem;
+    }
+
+    .my-details-info-container span {
+      margin-left: 0.4rem;
+    }
+
+    .my-details-info-container i {
+      color: white;
+    }
+
+    .my-details-icon {
+      width: 1rem;
+      height: 1rem;
+      vertical-align: bottom;
+      margin-right: 0.5rem;
+    }
+
+    #contact-form input,
+    textarea {
+      max-width: 90%;
+      margin: 15px;
+      padding: 4px 10px;
+      border: 0px solid transparent;
+      border-bottom: 2px solid white;
+      color: #d9dcdd;
+      background: transparent;
+      width: 90%;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    #contact-form button[type="submit"] {
+      background: transparent;
+      font-size: 0.95rem;
+      border: 2px solid white;
+      margin-top: 5%;
+      margin-left: 35%;
+      border-radius: 2px;
+      color: white;
+      font-family: sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.046875em;
+      line-height: 1;
+      padding: 0.8em 0.8em 0.78em;
+      text-transform: uppercase;
+    }
+
+    #contact-form button:hover {
+      background: white;
+      color: #13386fe0;
+    }
+
+    #contact .social-icons li a i {
+      font-size: 1.2rem;
+      margin: 40px 10px 10px;
+      padding: 10px 14px 20px 10px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus,
+    button:focus {
+      outline: none;
+    }
+
+    /* Common Text Align Classes */
+
+    .text-right {
+      text-align: right;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-justify {
+      text-align: justify;
+    }
+
+    /* Common Margin Classes */
+
+    .m0 {
+      margin: 0;
+    }
+
+    .mb75px {
+      margin-bottom: 75px;
+    }
+
+    .mb50px {
+      margin-bottom: 50px;
+    }
+
+    /*common color classes */
+
+    .text-highlight {
+      color: #2857a4;
+      font-weight: 600;
+    }
+
+    /* setting background-color */
+
+    .m-blue {
+      color: #2857a4;
+    }
+
+    .mb-blue {
+      background-color: #2857a4;
+    }
+
+    .mb-orange {
+      background-color: #ec4d1c;
+    }
+
+    .mb-teal {
+      background-color: #0b8176;
+    }
+
+    .mb-light-purple {
+      background-color: #93738c;
+    }
+
+    /*Percentage Classes */
+
+    .eighty-five-percent {
+      height: inherit;
+      width: 85%;
+    }
+
+    .eighty-percent {
+      height: inherit;
+      width: 80%;
+    }
+
+    .fifty-percent {
+      height: inherit;
+      width: 50%;
+    }
+
+    /* Scroll Progress */
+    .scroll-progress {
+      height: 10px;
+      width: 100%;
+      background-color: #000;
+      z-index: 50;
+      position: fixed;
+      top: 0%;
+      left: 0%;
+    }
+
+    .scroll-progress-bar {
+      transition: width 0.15s linear;
+      background: #03c4a1;
+      height: 100%;
+      width: 0%;
+    }
+
+    /* Scroll Progress Count */
+    #scroll-progress-count {
+      position: fixed;
+      top: 13%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      height: 30px;
+      width: 8rem;
+      background-color: transparent;
+      text-align: center;
+      color: #000;
+      border: 2px solid #000;
+      border-radius: 14px;
+      box-shadow: 0px 0px 7px 0px rgba(230, 196, 196, 1);
+      z-index: 50;
+      word-wrap: break-word;
+      word-break: break-all;
+      padding: 0.3rem 0.7rem;
+    }
+
+    #scroll-progress-count span {
+      line-height: 30px;
+    }
+
+    #scrolled {
+      font-size: 1.3rem;
+    }
+
+    /* Responsive Media Queries */
+    @media only screen and (max-width: 768px) {
+      .timeline-box {
+        width: 90%;
+        left: 10% !important;
+      }
+
+      .timeline-box::after {
+        left: -9.3% !important;
+      }
+
+      #timeline-divider {
+        top: 10%;
+        left: 2%;
+      }
+
+      #contact-form {
+        margin-left: 0%;
+      }
+
+      #contact-container {
+        flex-wrap: wrap;
+      }
+
+      #my-details-container {
+        width: 80%;
+        margin: 10%;
+      }
+
+      #contact-form-container {
+        width: 80%;
+        margin: 10%;
+      }
+    }
+
+    @media only screen and (max-width: 572px) {
+      .timeline-box {
+        width: 100%;
+        left: 10% !important;
+      }
+
+      .bars {
+        display: block;
+      }
+
+      .nav-menu {
+        display: none;
+      }
+    }
+
+    #experience {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: blue;
+    }
+
+    #education {
+      display: flex;
+      justify-content: center;
+      /* Center the timeline horizontally */
+      align-items: center;
+      /* Center the timeline vertically if needed */
+      flex-direction: column;
+      /* Stack elements vertically */
+      text-align: center;
+      /* Center text within the section */
+      padding: 20px;
+      /* Adjust padding as needed */
+      background-color: lightgrey;
+      /* Optional: background color for better visibility */
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      /* Horizontally centers the content */
+      align-items: center;
+      /* Vertically centers the content */
+      /* height: 100vh; Optional: adjust if you want to center it within the entire viewport height */
+    }
+
+    .left-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header id='body-header'>
+    <br>
+    <nav>
+      <ul class="horizontal-list">
+        <li>
+          <a href="#home">Home</a>
+        </li>
+        <li>
+          <a href="#about">About</a>
+        </li>
+        <li>
+          <a href="#skills">Skills</a>
+        </li>
+        <li>
+          <a href="#experience">Experience</a>
+        </li>
+        <li>
+          <a href="#education">Education</a>
+        </li>
+        <li>
+          <a href="#portfolio">Portfolio</a>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <h3 class="dom">This images has parallax behaviour<br>upon scrolling</h3>
+    <h1 class="rom"> Vartika Verma </h1>
+    <div class="icon-container">
+      <ul class="no-list-style horizontal-list">
+        <li>
+          <a href="https://www.linkedin.com">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://stackoverflow.com" target="_blank">
+            <i class="fab fa-stack-overflow"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://plus.google.com" target="_blank">
+            <i class="fab fa-google-plus-g"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.facebook.com">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.quora.com" target="_blank">
+            <i class="fab fa-quora"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </header>
+  <br><br>
+  <div class="container">
+    <div class="left-section">
+      <img src="Vartika.jpg" alt="Image 1">
+    </div>
+  </div>
+  <main>
+    <section id="about">
+      <p>Hello , I'm Vartika Verma  from Lucknow , Uttar Pradesh . I am currently pursuing a Bachelor of Technology
+        (B.Tech) in Computer Science and Engineering at Dev Bhoomi Uttarakhand University , Dehradun . My Academic
+        journey has allowed me to build a strong foundation in Software Development , Data Structures and Algorithms ,
+        Web Development . And I am passionate about applying these skills to solve real - world applications .
+        Throughout my studies , I've worked on various projects which have helped me develop a hands-on understanding of
+        Web Development , DSA and Software Engineering. These experiences have fueled my drive to continuously learn and
+        innovate in the field .</p>
+    </section>
+    <br>
+    <section id="skills">
+      <br>
+      <h1 class="section-heading mb75px">
+        <span>
+          <i class="fa-solid fa-chalkboard-user"></i>
+        </span>
+        <span>SKILLS</span>
+      </h1>
+      <div class="skills-display">
+        <div class="skill-progress-bar">
+          <div class="new">
+            <div class="eighty-percent">
+              <div class="skill-name">
+                <span>HTML</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-progress-bar">
+          <div class="new">
+            <div class="twenty-percent">
+              <div class="skill-name">
+                <span>C++</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-progress-bar">
+          <div class="new">
+            <div class="seventy-percent">
+              <div class="skill-name">
+                <span>Python</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-progress-bar">
+          <div class="new">
+            <div class="ninety-percent">
+              <div class="skill-name">
+                <span>JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-progress-bar">
+          <div class="new">
+            <div class="ninety-percent" style="background-color: #43853d">
+              <div class="skill-name">
+                <span>NodeJS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-progress-bar">
+          <div class="new">
+            <div class="eighty-percent">
+              <div class="skill-name">
+                <span>Express</span>
+              </div>
+              <br><br>
+            </div>
+          </div>
+        </div>
+        <br><br>
+      </div>
+    </section>
+    <section id="experience">
+      <br>
+      <h1 class="section-heading mb75px">
+        <span>
+          <i class="fas fa-briefcase"></i>
+        </span>
+        <span> Work Experience </span>
+      </h1>
+
+      <div class="timeline">
+        <div class="timeline-box">
+          <div class="timeline-container">
+            <div class="timeline-logo">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkhsBekjhqehDLd_OXTGhHHujDB02KwOOyeg&s" />
+            </div>
+            <h3 class="experience-designation m0 m-blue">
+              Certification
+            </h3>
+            <h4 class="experience-company-name">Java Certification</h4>
+            <h5 class="experience-duration m0">
+              June 2024
+            </h5>
+
+            <p class="experience-description text-justify">
+              I have completed my cerfication in java from Linkedin Learning . I have learned some core concepts very
+              well like OOPS concept ,
+              Inheritance , Abstraction , Encapsulation etc.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-box right">
+          <div class="timeline-container">
+            <div class="timeline-logo">
+              <img src="https://img.freepik.com/premium-vector/quiz-logo-icon-symbol_101884-1075.jpg" />
+            </div>
+            <h3 class="experience-designation m0 m-blue">
+              Minor Project
+            </h3>
+            <h4 class="experience-company-name">Quiz Application</h4>
+            <h5 class="experience-duration m0">
+              Sep 2024
+            </h5>
+            <p class="experience-description text-justify">
+              Designed a Quiz app using HTML , CSS and Javascript which has multiple features having general Knowledge
+              to Vast geography.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-box left">
+          <div class="timeline-container">
+            <div class="timeline-logo">
+              <img
+                src="https://media.licdn.com/dms/image/v2/D560BAQHWDYEWXkPfTg/company-logo_200_200/company-logo_200_200/0/1719047606096/octanetsolutions_logo?e=2147483647&v=beta&t=RFsKKYn-T-S9bMbG9po783ybKJfSTBvKq4zoJh6BtRk" />
+            </div>
+            <h3 class="experience-designation m0 m-blue">
+              Internship
+            </h3>
+            <h4 class="experience-company-name">Octanet Private Limited</h4>
+            <h5 class="experience-duration m0">
+              Jun 2024 - Jul 2024
+            </h5>
+
+            <p class="experience-description text-justify">
+              I have completed my internship in Web Development from Octanet Private Limited.
+            </p>
+          </div>
+        </div>
+
+        <div id="timeline-divider">
+          <div class="timeline-traveller">
+            <div>
+              <i class="fas fa-plane"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="education">
+      <br>
+      <h1 class="section-heading mb75px">
+        <span>
+          <i class="fas fa-graduation-cap"></i>
+        </span>
+        <span> Education </span>
+      </h1>
+
+      <div class="timeline">
+        <div class="timeline-box left">
+          <div class="timeline-container">
+            <div class="timeline-logo">
+              <img
+                src="https://yt3.googleusercontent.com/6jkXwO5YGv8Z7GXGz2eldOpuuErnmTCsFL06EZdi5NUZn4enSKluW4J_ijPjmzBXMMaXXNnpFg=s900-c-k-c0x00ffffff-no-rj" />
+            </div>
+            <h3 class="experience-designation m0 m-blue">High School</h3>
+            <h4 class="experience-company-name">Modern Academy, Lucknow</h4>
+            <h5 class="experience-duration m0">
+              Jul 2020 - Jul 2021
+            </h5>
+
+            <p class="experience-description text-justify">
+              I have completed my High School Education from Modern Academy, Lucknow with an aggregate of 90%
+              in the year 2019-2020 .
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-box right">
+          <div class="timeline-container">
+            <div class="timeline-logo">
+              <img
+                src="https://yt3.googleusercontent.com/6jkXwO5YGv8Z7GXGz2eldOpuuErnmTCsFL06EZdi5NUZn4enSKluW4J_ijPjmzBXMMaXXNnpFg=s900-c-k-c0x00ffffff-no-rj" />
+            </div>
+            <h3 class="experience-designation m0 m-blue">Senior Secondary</h3>
+            <h4 class="experience-company-name">Modern Academy,Lucknow</h4>
+            <h5 class="experience-duration m0">
+              Jul 2021 - Jul 2022
+            </h5>
+            <p class="experience-description text-justify">
+              I have completed my Senior Secondary Education from Modern Academy,Lucknow with an aggregate of 80%
+              in the year 2021-2022 .
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-box left">
+          <div class="timeline-container">
+            <div class="timeline-logo">
+              <img
+                src="https://yt3.googleusercontent.com/UvUG-tSg0quxB9quXT3g3Ax-4m9niEyiZd1eW0c0NDiwkFIrFRORlAj-bzsTAqDWvZK_-mncvA=s176-c-k-c0x00ffffff-no-rj-mo" />
+            </div>
+            <h3 class="experience-designation m0 m-blue">B.Tech(CSE)</h3>
+            <h4 class="experience-company-name">Dev Bhoomi Uttarakhand University</h4>
+            <h5 class="experience-duration m0">
+              Aug 2022 - Aug 2026
+            </h5>
+
+            <p class="experience-description text-justify">
+              I am currently pursuing a B.Tech in CSE from 2022 to 2026 . With a passion for technology and
+              problem-solving . I continue to explore the ever-evolving tech world, applying my knowledge in areas such
+              as software development , algorithms and system design . My dedication to innovation and continuous
+              learning shapes my approach to both personal and professional growth.
+            </p>
+          </div>
+        </div>
+
+        <div id="timeline-divider">
+          <div class="timeline-traveller">
+            <div>
+              <i class="fas fa-car-side"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <br>
+      <h1 class="section-heading mb75px">
+        <span>
+          <i class="fas fa-th-list"></i>
+        </span>
+        <span> Portfolio </span>
+      </h1>
+
+      <div id="portfolio-container">
+        <div class="portfolio-image-container">
+          <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000025_1550237330_codezen_2.png" />
+          <div class="portfolio-details">
+            <p>Write here basic details about the project.</p>
+          </div>
+        </div>
+        <div class="portfolio-image-container">
+          <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000025_1550237330_codezen_2.png" />
+          <div class="portfolio-details">
+            <p>Write here basic details about the project.</p>
+          </div>
+        </div>
+        <div class="portfolio-image-container">
+          <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000025_1550237330_codezen_2.png" />
+          <div class="portfolio-details">
+            <p>Write here basic details about the project.</p>
+          </div>
+        </div>
+        <div class="portfolio-image-container">
+          <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000024_1550237299_codezen.png" />
+          <div class="portfolio-details">
+            <p>Write here basic details about the project.</p>
+          </div>
+        </div>
+        <div class="portfolio-image-container">
+          <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000024_1550237299_codezen.png" />
+          <div class="portfolio-details">
+            <p>Write here basic details about the project.</p>
+          </div>
+        </div>
+        <div class="portfolio-image-container">
+          <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000024_1550237299_codezen.png" />
+          <div class="portfolio-details">
+            <p>Write here basic details about the project.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <br>
+      <h1 class="section-heading mb50px">
+        <span>
+          <i class="far fa-address-card"></i>
+        </span>
+        <span> Contact </span>
+      </h1>
+      <div id="contact-container">
+        <div id="contact-form-container">
+          <form id="contact-form">
+            <input id="input-name" name="name" type="text" placeholder="Your Name" />
+            <input id="input-email" name="input-email" type="text" required placeholder="Your Email" />
+            <textarea id="input-message" name="input-message" rows="2" cols="40" placeholder="Message"></textarea>
+            <button class="sub-btn" type="submit">SEND MESSAGE</button>
+          </form>
+        </div>
+        <div id="my-details-container">
+          <h3>Get In touch</h3>
+          <p>
+            If you'are looking to get touch with me, feel free to message here anytime! I am always available to help
+            with questions, discussions, or anything else you'd like to talk about. If you mean connecting in
+            some other way. I'm here in this chat for now. How can I assist you?
+          </p>
+
+          <h3>My Address</h3>
+          <div class="my-details-info-container">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Lucknow, India</span>
+          </div>
+          <div class="my-details-info-container">
+            <i class="fas fa-mobile-alt"></i>
+            <span>9260936346</span>
+          </div>
+          <div class="my-details-info-container">
+            <i class="far fa-envelope"></i>
+            <span>vartikaverma768@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center social-icons">
+        <ul class="no-list-style horizontal-list">
+          <li>
+            <a href="https://www.linkedin.com">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://stackoverflow.com" target="_blank">
+              <i class="fab fa-stack-overflow"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://plus.google.com" target="_blank">
+              <i class="fab fa-google-plus-g"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.facebook.com">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.quora.com" target="_blank">
+              <i class="fab fa-quora"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
